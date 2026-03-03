@@ -1,0 +1,104 @@
+@use './variables' as *;
+
+// Font Face Declarations
+@font-face {
+  font-family: 'KH Interference';
+  src: url('/fonts/kh-interference/KHInterference-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'KH Interference';
+  src: url('/fonts/kh-interference/KHInterference-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'PP FraktionMono';
+  src: url('/fonts/pp-fraktion/PPFraktionMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+// Typography Mixins
+@mixin heading-1 {
+  font-family: $font-primary;
+  font-size: $font-size-5xl;
+  font-weight: $font-weight-light;
+  line-height: $line-height-tight;
+  letter-spacing: -0.025em;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: $font-size-4xl;
+  }
+}
+
+@mixin heading-2 {
+  font-family: $font-primary;
+  font-size: $font-size-4xl;
+  font-weight: $font-weight-light;
+  line-height: $line-height-tight;
+  letter-spacing: -0.025em;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: $font-size-3xl;
+  }
+}
+
+@mixin heading-3 {
+  font-family: $font-primary;
+  font-size: $font-size-3xl;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-tight;
+  letter-spacing: -0.025em;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: $font-size-2xl;
+  }
+}
+
+@mixin heading-4 {
+  font-family: $font-primary;
+  font-size: $font-size-2xl;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+
+  @media (max-width: $breakpoint-mobile) {
+    font-size: $font-size-xl;
+  }
+}
+
+@mixin body-text {
+  font-family: $font-mono;
+  font-size: $font-size-base;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+}
+
+@mixin body-text-large {
+  font-family: $font-mono;
+  font-size: $font-size-lg;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-relaxed;
+}
+
+@mixin caption {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+  color: $color-text-light;
+}
+
+@mixin small-text {
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-normal;
+  color: $color-text-muted;
+}

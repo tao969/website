@@ -1,0 +1,217 @@
+@use './variables' as *;
+
+// Font Style Utilities
+// Additional typography and font styling utilities
+
+// Font Style
+.font-normal {
+  font-style: normal;
+}
+
+.font-italic {
+  font-style: italic;
+}
+
+// Letter Spacing
+.tracking-tight {
+  letter-spacing: -0.025em;
+}
+
+.tracking-normal {
+  letter-spacing: 0;
+}
+
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
+.tracking-wider {
+  letter-spacing: 0.05em;
+}
+
+.tracking-widest {
+  letter-spacing: 0.1em;
+}
+
+// Word Spacing
+.word-spacing-tight {
+  word-spacing: -0.1em;
+}
+
+.word-spacing-normal {
+  word-spacing: normal;
+}
+
+.word-spacing-wide {
+  word-spacing: 0.1em;
+}
+
+// Text Decoration
+.underline {
+  text-decoration: underline;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+// Text Shadow
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-md {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-none {
+  text-shadow: none;
+}
+
+// Font Variant
+.font-variant-normal {
+  font-variant: normal;
+}
+
+.font-variant-small-caps {
+  font-variant: small-caps;
+}
+
+// Text Indent
+.indent-0 {
+  text-indent: 0;
+}
+
+.indent-1 {
+  text-indent: $spacing-xs;
+}
+
+.indent-2 {
+  text-indent: $spacing-sm;
+}
+
+.indent-3 {
+  text-indent: $spacing-md;
+}
+
+// White Space
+.whitespace-normal {
+  white-space: normal;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.whitespace-pre {
+  white-space: pre;
+}
+
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+.whitespace-pre-wrap {
+  white-space: pre-wrap;
+}
+
+// Word Break
+.break-normal {
+  word-break: normal;
+}
+
+.break-words {
+  word-break: break-word;
+}
+
+.break-all {
+  word-break: break-all;
+}
+
+// Hyphens
+.hyphens-none {
+  hyphens: none;
+}
+
+.hyphens-manual {
+  hyphens: manual;
+}
+
+.hyphens-auto {
+  hyphens: auto;
+}
+
+// Text Overflow
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.text-clip {
+  text-overflow: clip;
+}
+
+// Writing Mode
+.writing-normal {
+  writing-mode: horizontal-tb;
+}
+
+.writing-vertical {
+  writing-mode: vertical-rl;
+}
+
+// Text Orientation
+.text-orientation-mixed {
+  text-orientation: mixed;
+}
+
+.text-orientation-upright {
+  text-orientation: upright;
+}
+
+// Font Feature Settings
+.font-ligatures {
+  font-feature-settings: "liga" 1, "kern" 1;
+}
+
+.font-no-ligatures {
+  font-feature-settings: "liga" 0;
+}
+
+.font-tabular {
+  font-feature-settings: "tnum" 1;
+}
+
+.font-proportional {
+  font-feature-settings: "tnum" 0;
+}
+
+// Text Selection
+.select-none {
+  user-select: none;
+}
+
+.select-text {
+  user-select: text;
+}
+
+.select-all {
+  user-select: all;
+}
+
+.select-auto {
+  user-select: auto;
+}

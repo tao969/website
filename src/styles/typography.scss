@@ -1,0 +1,170 @@
+@use './abstracts/variables' as *;
+@use './abstracts/fonts' as *;
+
+// Typography Styles
+// Professional typography system using KH Interference and PP FraktionMono
+
+// Headings
+h1 {
+  @include heading-1;
+  margin-bottom: $spacing-lg;
+}
+
+h2 {
+  @include heading-2;
+  margin-bottom: $spacing-md;
+}
+
+h3 {
+  @include heading-3;
+  margin-bottom: $spacing-md;
+}
+
+h4 {
+  @include heading-4;
+  margin-bottom: $spacing-sm;
+}
+
+// Body Text
+p {
+  @include body-text;
+  margin-bottom: $spacing-md;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Large Body Text
+.text-large {
+  @include body-text-large;
+}
+
+// Caption Text
+.caption {
+  @include caption;
+}
+
+// Small Text
+.small {
+  @include small-text;
+}
+
+// Text Utilities
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+// Font Weight Utilities
+.font-light {
+  font-weight: $font-weight-light;
+}
+
+.font-regular {
+  font-weight: $font-weight-regular;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium;
+}
+
+.font-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold;
+}
+
+// Font Size Utilities
+.text-xs {
+  font-size: $font-size-xs;
+}
+
+.text-sm {
+  font-size: $font-size-sm;
+}
+
+.text-base {
+  font-size: $font-size-base;
+}
+
+.text-lg {
+  font-size: $font-size-lg;
+}
+
+.text-xl {
+  font-size: $font-size-xl;
+}
+
+.text-2xl {
+  font-size: $font-size-2xl;
+}
+
+.text-3xl {
+  font-size: $font-size-3xl;
+}
+
+.text-4xl {
+  font-size: $font-size-4xl;
+}
+
+.text-5xl {
+  font-size: $font-size-5xl;
+}
+
+// Line Height Utilities
+.leading-tight {
+  line-height: $line-height-tight;
+}
+
+.leading-normal {
+  line-height: $line-height-normal;
+}
+
+.leading-relaxed {
+  line-height: $line-height-relaxed;
+}
+
+// Color Utilities
+.text-primary {
+  color: $color-text;
+}
+
+.text-light {
+  color: $color-text-light;
+}
+
+.text-muted {
+  color: $color-text-muted;
+}
+
+// Font Family Utilities
+.font-primary {
+  font-family: $font-primary;
+}
+
+.font-mono {
+  font-family: $font-mono;
+}

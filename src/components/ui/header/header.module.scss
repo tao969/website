@@ -1,0 +1,368 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+@use '../../../styles/abstracts/fonts' as *;
+
+// Header Styles - Professional Non-Floating Design
+.header {
+  background: $color-background;
+  position: static;
+  width: 100%;
+  min-height: 5rem; // 80px - match footer height
+
+  // Add breathing room - prevent header from sticking to top of browser
+  padding-top: $spacing-lg;    // 24px - top breathing room
+  padding-bottom: $spacing-lg; // 24px - bottom breathing room
+  // Horizontal padding is 0 because .container handles it
+
+  @include mobile {
+    min-height: 3.75rem; // 60px - match footer height
+    padding-top: $spacing-md;    // 16px - smaller breathing room on mobile
+    padding-bottom: $spacing-md; // 16px - smaller breathing room on mobile
+  }
+}
+
+.navPanel {
+  background: $color-background;
+  border: none;
+  box-shadow: none;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: inherit; // Ensure nav takes full height from header
+
+  // Mobile Menu Button
+  .mobileMenuButton {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    @include font-information-nav;
+    color: $color-text;
+    transition: color $transition-fast;
+    line-height: 1;
+    height: 100%;
+
+    &:hover {
+      color: $color-text-light;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @include mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      span {
+        padding: 0 !important;
+        min-height: auto !important;
+        line-height: 1;
+      }
+    }
+  }
+
+  @include mobile {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    padding: $spacing-xs $container-padding;
+    min-height: inherit; // Match header's mobile min-height for consistency
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 120px; // Fixed width (7.5rem) - using px for precise logo alignment
+  height: 100%; // Match parent container height for perfect alignment
+
+  .logoLink {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-decoration: none;
+    transition: opacity $transition-fast;
+    height: 100%; // Ensure full height utilization
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  .logoIcon {
+    width: $font-size-xl; // 24px - consistent with design tokens
+    height: $font-size-xl; // 24px - consistent with design tokens
+    color: $color-text;
+    display: block;
+    flex-shrink: 0;
+    line-height: 1; // Ensure consistent line height for SVG alignment
+  }
+}
+
+.navCenter {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include mobile {
+    gap: $spacing-sm;
+  }
+
+  a {
+    @include font-information-nav;
+    color: $color-text;
+    text-decoration: none;
+    display: block;
+    position: relative;
+    transition: color $transition-fast;
+    line-height: 1;
+
+    &:hover {
+      color: $color-text-light;
+    }
+  }
+}
+
+.navRight {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 120px; // Fixed width (7.5rem) - match logo width for symmetric centering
+  justify-content: flex-end;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.ctaLink {
+  @include font-information-nav;
+  color: $color-text;
+  text-decoration: none;
+  display: block;
+  position: relative;
+  transition: color $transition-fast;
+  line-height: 1;
+
+  &:hover {
+    color: $color-text-light;
+  }
+}
+
+// Mobile Menu Overlay
+.mobileMenuOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(12px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-normal ease-out;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Mobile Menu
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $color-background;
+  z-index: 1000;
+  padding: $spacing-2xl $spacing-lg $spacing-xl;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(-100%);
+  transition: transform $transition-normal ease-out;
+  overflow-y: auto;
+
+  .mobileMenuOverlay.active & {
+    transform: translateY(0);
+  }
+
+  // Ensure proper spacing and layout
+  @include mobile {
+    padding: $spacing-xl $spacing-lg $spacing-lg;
+  }
+
+  // Extra small screens
+  @media (max-width: 480px) {
+    padding: $spacing-lg $spacing-md $spacing-md;
+  }
+}
+
+// Mobile Close Button
+.mobileCloseButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  @include font-information-nav;
+  color: $color-text;
+  position: absolute;
+  top: $spacing-lg;
+  right: $spacing-lg;
+  transition: color $transition-fast;
+  line-height: 1;
+
+  &:hover {
+    color: $color-text-light;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // Responsive adjustments
+  @media (max-width: 480px) {
+    top: $spacing-md;
+    right: $spacing-md;
+    font-size: $font-size-xs;
+  }
+
+  span {
+    line-height: 1;
+  }
+}
+
+// Mobile Navigation Content Container
+.mobileNavContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  width: 100%;
+  padding: $spacing-lg 0;
+  max-width: 300px;
+}
+
+// Mobile Navigation List
+.mobileNavList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+
+  li {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  a {
+    @include font-anchor-card;
+    color: $color-text;
+    text-decoration: none;
+    display: block;
+    padding: $spacing-sm 0;
+    position: relative;
+    transition: color $transition-fast;
+    text-align: center;
+
+    &:hover {
+      color: $color-text-light;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    // Responsive adjustments for smaller screens
+    @media (max-width: 480px) {
+      font-size: $font-size-lg;
+      padding: $spacing-xs 0;
+    }
+  }
+}
+
+// Mobile CTA Section
+.mobileCta {
+  margin-top: auto;
+  padding: $spacing-md $spacing-md $spacing-lg $spacing-md;
+  text-align: center;
+  width: 100%;
+  border-top: 1px solid rgba($color-border, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobileCtaLink {
+  @include font-information-nav;
+  color: $color-text;
+  text-decoration: none;
+  display: inline-block;
+  padding: $spacing-md $spacing-lg;
+  position: relative;
+  transition: color $transition-fast, transform $transition-fast, opacity $transition-fast;
+  text-align: center;
+  line-height: 1;
+  border-radius: $border-radius-sm;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover {
+    color: $color-text-light;
+  }
+
+  &:active {
+    transform: scale(0.96);
+    opacity: 0.7;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  // Responsive adjustments
+  @media (max-width: 480px) {
+    padding: $spacing-md $spacing-md;
+    font-size: $font-size-xs;
+  }
+
+  span {
+    line-height: 1;
+  }
+}

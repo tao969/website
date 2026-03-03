@@ -1,0 +1,100 @@
+// SCSS Functions
+// Utility functions for calculations and conversions
+
+// Convert px to rem
+@function rem($pixels, $base: 16) {
+  @return #{$pixels / $base}rem;
+}
+
+// Convert px to em
+@function em($pixels, $base: 16) {
+  @return #{$pixels / $base}em;
+}
+
+// Get color with opacity
+@function rgba-color($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+// Calculate responsive font size
+@function responsive-font-size($min-size, $max-size, $min-width: 320, $max-width: 1200) {
+  $slope: ($max-size - $min-size) / ($max-width - $min-width);
+  $y-intercept: $min-size - ($slope * $min-width);
+
+  @return calc(#{$y-intercept}px + #{$slope * 100}vw);
+}
+
+// Calculate aspect ratio
+@function aspect-ratio($width, $height) {
+  @return percentage($height / $width);
+}
+
+// Get z-index value
+@function z-index($layer) {
+  $z-indexes: (
+    'dropdown': 1000,
+    'sticky': 1020,
+    'fixed': 1030,
+    'modal-backdrop': 1040,
+    'modal': 1050,
+    'popover': 1060,
+    'tooltip': 1070,
+  );
+
+  @return map-get($z-indexes, $layer);
+}
+
+// Calculate grid column width
+@function grid-column-width($columns, $total-columns: 12) {
+  @return percentage($columns / $total-columns);
+}
+
+// Calculate container max-width
+@function container-max-width($breakpoint) {
+  $max-widths: (
+    'mobile': 100%,
+    'tablet': 768px,
+    'desktop': 1200px,
+    'wide': 1400px,
+  );
+
+  @return map-get($max-widths, $breakpoint);
+}
+
+// Spacing helper function - get spacing token by scale
+@function spacing($scale) {
+  $spacing-map: (
+    'xs': 4px,
+    'sm': 8px,
+    'md': 16px,
+    'lg': 24px,
+    'xl': 32px,
+    '2xl': 48px,
+    '3xl': 64px,
+  );
+
+  @return map-get($spacing-map, $scale);
+}
+
+// Design token helper - convert common values to design tokens
+@function design-token($type, $value) {
+  @if $type == 'spacing' {
+    @return spacing($value);
+  } @else if $type == 'color' {
+    $color-map: (
+      'primary': #000000,
+      'secondary': #ffffff,
+      'text': #000000,
+      'text-light': #666666,
+      'text-muted': #999999,
+      'background': #ffffff,
+      'background-alt': #f8f8f8,
+      'border': #e0e0e0,
+      'border-light': #f0f0f0,
+    );
+    @return map-get($color-map, $value);
+  } @else {
+    @warn 'Unknown design token type: #{$type}';
+    @return null;
+  }
+}

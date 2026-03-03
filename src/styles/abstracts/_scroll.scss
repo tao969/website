@@ -1,0 +1,180 @@
+@use './variables' as *;
+
+// Scroll Behavior and Styling
+// Custom scrollbar and smooth scrolling utilities
+
+// Smooth Scroll
+html {
+  scroll-behavior: smooth;
+}
+
+// Custom Scrollbar
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-background-alt;
+  border-radius: $border-radius-sm;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-border;
+  border-radius: $border-radius-sm;
+  transition: background $transition-fast;
+
+  &:hover {
+    background: $color-text-light;
+  }
+}
+
+::-webkit-scrollbar-corner {
+  background: $color-background-alt;
+}
+
+// Firefox Scrollbar
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $color-border $color-background-alt;
+}
+
+// Scroll Snap
+.scroll-snap {
+  scroll-snap-type: y mandatory;
+}
+
+.scroll-snap-item {
+  scroll-snap-align: start;
+}
+
+.scroll-snap-center {
+  scroll-snap-align: center;
+}
+
+.scroll-snap-end {
+  scroll-snap-align: end;
+}
+
+// Scroll Utilities
+.scroll-auto {
+  overflow: auto;
+}
+
+.scroll-hidden {
+  overflow: hidden;
+}
+
+.scroll-x {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.scroll-y {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// Scroll Padding
+.scroll-padding-top {
+  scroll-padding-top: $spacing-lg;
+}
+
+.scroll-padding-bottom {
+  scroll-padding-bottom: $spacing-lg;
+}
+
+// Scroll Margin
+.scroll-margin-top {
+  scroll-margin-top: $spacing-lg;
+}
+
+.scroll-margin-bottom {
+  scroll-margin-bottom: $spacing-lg;
+}
+
+// Smooth Scrolling Container
+.smooth-scroll {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+// Hide Scrollbar (but keep functionality)
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Custom Scrollbar for Specific Elements
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color-text-muted;
+    border-radius: $border-radius-sm;
+
+    &:hover {
+      background: $color-text-light;
+    }
+  }
+}
+
+// Scroll Indicator
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: $color-border-light;
+  z-index: 1000;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: $color-primary;
+    width: 0%;
+    transition: width $transition-normal;
+  }
+}
+
+// Scroll to Top Button
+.scroll-to-top {
+  position: fixed;
+  bottom: $spacing-lg;
+  right: $spacing-lg;
+  width: 48px;
+  height: 48px;
+  background: $color-primary;
+  color: $color-secondary;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all $transition-normal;
+  z-index: 1000;
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+}

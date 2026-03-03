@@ -1,0 +1,20 @@
+{
+  "name": "Taopik Hidayat - Portfolio",
+  "short_name": "Taopik Portfolio",
+  "description": "Personal portfolio website of Taopik Hidayat - Developer exploring AI and Web3 technologies",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["portfolio", "developer", "technology"],
+  "lang": "en",
+  "dir": "ltr"
+}

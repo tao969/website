@@ -1,0 +1,188 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+@use '../../../styles/abstracts/fonts' as *;
+
+// Footer Styles - Professional - Match Header Spacing
+.footer {
+  background: $color-background;
+  position: static;
+  width: 100%;
+  min-height: 5rem; // 80px - match header height
+
+  // Match header breathing room spacing
+  padding-top: $spacing-lg;    // 24px - top breathing room
+  padding-bottom: $spacing-lg; // 24px - bottom breathing room
+  // Horizontal padding is 0 because .container handles it
+
+  @include mobile {
+    min-height: 3.75rem; // 60px - match header height
+    padding-top: $spacing-md;    // 16px - smaller breathing room on mobile
+    padding-bottom: $spacing-md; // 16px - smaller breathing room on mobile
+  }
+}
+
+.footerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: inherit; // Ensure footer content takes full height from footer
+  gap: $spacing-lg;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-sm;
+    text-align: center;
+    align-items: center;
+    min-height: inherit; // Match header mobile behavior
+  }
+}
+
+.footerLeft {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 7.5rem; // Match header logo width for consistency (120px = 7.5rem)
+
+  @include mobile {
+    width: auto;
+    justify-content: center;
+    order: 1;
+    margin-bottom: 0;
+  }
+}
+
+.footerLogoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: $spacing-xs 0;
+  transition: opacity $transition-fast;
+
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.footerLogo {
+  width: $font-size-xl; // 24px - match header logo size
+  height: $font-size-xl; // 24px - match header logo size
+  color: $color-text;
+  display: block;
+  line-height: 1; // Ensure consistent line height
+
+  @include mobile {
+    width: $font-size-xl; // 24px - consistent with header
+    height: $font-size-xl; // 24px - consistent with header
+  }
+}
+
+.footerCenter {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+  padding: $spacing-xs 0;
+
+  @include mobile {
+    order: 2;
+    margin-bottom: 0;
+    flex: none;
+    width: auto;
+  }
+}
+
+.footerCopyright {
+  @include font-information-caption;
+  margin: 0;
+  text-align: center;
+  line-height: 1.3;
+
+  @include mobile {
+    font-size: $font-size-sm;
+    margin-bottom: 0;
+    max-width: 21.875rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 $spacing-sm;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-align: center;
+  }
+}
+
+.footerName {
+  font-family: $font-primary;
+  font-weight: $font-weight-medium;
+  color: $color-text;
+  white-space: nowrap;
+
+  @include mobile {
+    white-space: normal;
+    display: inline;
+  }
+}
+
+.mobileBreak {
+  display: none;
+
+  @include mobile {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.rightsText {
+  @include mobile {
+    display: block;
+    margin-top: 0.125rem; // 2px = 0.125rem
+  }
+}
+
+.footerRight {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  width: 7.5rem; // Match header CTA button width for consistency (120px = 7.5rem)
+  justify-content: flex-end;
+  gap: $spacing-lg;
+
+  @include mobile {
+    width: auto;
+    justify-content: center;
+    gap: $spacing-md;
+    order: 3;
+    margin-top: 0;
+  }
+}
+
+.footerLink {
+  @include font-information-label;
+  color: $color-text;
+  text-decoration: none;
+  position: relative;
+  transition: color $transition-fast;
+  padding: 0;
+  border-radius: $border-radius-sm;
+
+  @include mobile {
+    font-size: $font-size-sm;
+    padding: $spacing-xs $spacing-sm;
+    min-width: 5rem;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+  }
+
+  &:hover {
+    color: $color-text-light;
+  }
+
+  @include mobile {
+    &::after {
+      display: none;
+    }
+  }
+}

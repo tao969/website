@@ -1,0 +1,67 @@
+// Main container for the animated badge
+.animatedBadgeContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+}
+
+// Profile image container - sized to perfectly fill the badge's visible area
+.profileImageContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 141px;  // 94 * 1.5 (inner hole width scaled)
+  height: 141px; // 94 * 1.5 (inner hole height scaled)
+  border-radius: 21px; // 14 * 1.5 (inner hole border radius scaled)
+  overflow: hidden;
+  border: none; // Remove border to fit perfectly
+  box-shadow: none; // Remove shadow to fit perfectly
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 21px; // Match container's border radius
+}
+
+// SVG element containing the badge graphics
+.animatedBadgeSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.badgeBackground {
+  fill: #ffffff;
+}
+
+.badgeBorderStatic {
+  stroke: #e5e5e5; // neutral-200
+  stroke-width: 1;
+}
+
+// Animated "lightning" stroke
+.badgeBorderAnimated {
+  stroke: url(#geminiGradient);
+  filter: url(#geminiGlow);
+  stroke-width: 4;
+}
+
+// Dark mode styles
+@media (prefers-color-scheme: dark) {
+  .badgeBackground {
+    fill: #171717; // neutral-900
+  }
+
+  .badgeBorderStatic {
+    stroke: #262626; // neutral-800
+  }
+}

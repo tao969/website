@@ -1,0 +1,210 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+/*
+  =============================================================
+  THE ONLY CONTAINER YOU NEED FOR MAIN LAYOUT ALIGNMENT
+  This is the single source of truth for your layout.
+  =============================================================
+*/
+.container {
+  width: 100%;                  // Always take up 100% of the parent's width.
+  max-width: 1280px;            // Set a maximum width for large screens (sesuaikan jika perlu).
+  margin-left: auto;            // These two lines are the magic for centering.
+  margin-right: auto;
+
+  // Padding for "breathing room" on the sides.
+  // This ensures content never touches the screen edges on mobile.
+  padding-left: $spacing-md;    // e.g., 24px
+  padding-right: $spacing-md;   // e.g., 24px
+
+  // On smaller screens, the padding can be smaller.
+  @include mobile {
+    padding-left: $spacing-sm;  // e.g., 16px
+    padding-right: $spacing-sm; // e.g., 16px
+  }
+}
+
+// Grid System
+.grid {
+  display: grid;
+  gap: $spacing-md;
+
+  @include mobile {
+    gap: $spacing-sm;
+  }
+}
+
+// Grid Columns
+.grid-cols-1 {
+  grid-template-columns: 1fr;
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Grid Gaps
+.gap-xs {
+  gap: $spacing-xs;
+}
+
+.gap-sm {
+  gap: $spacing-sm;
+}
+
+.gap-md {
+  gap: $spacing-md;
+}
+
+.gap-lg {
+  gap: $spacing-lg;
+}
+
+.gap-xl {
+  gap: $spacing-xl;
+}
+
+// Grid Areas
+.grid-area-header {
+  grid-area: header;
+}
+
+.grid-area-main {
+  grid-area: main;
+}
+
+.grid-area-sidebar {
+  grid-area: sidebar;
+}
+
+.grid-area-footer {
+  grid-area: footer;
+}
+
+// Layout Templates
+.layout-main {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+.layout-main-sidebar {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "main sidebar"
+    "footer footer";
+  grid-template-columns: 1fr 300px;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+
+  @include mobile {
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+}
+
+// Flexbox Layouts
+.flex-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.flex-layout-main {
+  flex: 1;
+}
+
+.flex-layout-header {
+  flex-shrink: 0;
+}
+
+.flex-layout-footer {
+  flex-shrink: 0;
+}
+
+// Centered Layout
+.centered-layout {
+  @include flex-center;
+  min-height: 100vh;
+  padding: $spacing-lg;
+}
+
+// Removed .content-layout - now using .container as single source of truth
+
+// Section Layout
+.section-layout {
+  padding: $spacing-2xl 0;
+
+  @include mobile {
+    padding: $spacing-xl 0;
+  }
+}
+
+// Card Layout
+.card-layout {
+  background: $color-background;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  padding: $spacing-lg;
+  box-shadow: $shadow-sm;
+}
+
+// Grid Item Utilities
+.grid-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-item-center {
+  @include flex-center;
+}
+
+.grid-item-start {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.grid-item-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}

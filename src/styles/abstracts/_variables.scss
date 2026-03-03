@@ -1,0 +1,159 @@
+// =============================================================================
+// 🎨 DESIGN TOKENS - SUMBER KEBENARAN TUNGGAL UNTUK STYLING
+//
+// Sistem ini menggunakan pendekatan "Design Tokens" yang profesional:
+// ✅ Skala spasi berbasis 8px untuk ritme visual yang konsisten
+// ✅ Typography scale dengan rem units untuk aksesibilitas
+// ✅ Color palette terstruktur
+// ✅ Border radius scale yang sistematis
+// ✅ Breakpoints responsif yang terorganisir
+//
+// PENTING: Selalu gunakan variabel ini, bukan nilai hardcoded!
+//
+// CONTOH PENGGUNAAN YANG BENAR:
+//
+// ✅ BENAR:
+// .button {
+//   padding: $spacing-md $spacing-lg;      // 16px 24px
+//   font-size: $font-size-base;           // 1rem (16px)
+//   color: $color-text;                   // #000000
+//   border-radius: $border-radius-md;     // 8px
+// }
+//
+// ❌ SALAH (Jangan lakukan ini):
+// .button {
+//   padding: 13px 25px;     // Angka acak!
+//   font-size: 17px;        // Angka acak!
+//   color: #333;           // Warna acak!
+//   border-radius: 5px;     // Angka acak!
+// }
+//
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// 1. SKALA SPASI (SPACING SCALE)
+// -----------------------------------------------------------------------------
+// Menggunakan basis 8px. Semua spasi adalah kelipatan dari 8.
+// Ini menciptakan ritme visual yang konsisten di seluruh halaman.
+$spacing-xs: 4px;    // Extra Small (4px)
+$spacing-sm: 8px;    // Small (8px)
+$spacing-md: 16px;   // Medium/Baseline (16px)
+$spacing-lg: 24px;   // Large (24px)
+$spacing-xl: 32px;   // Extra Large (32px)
+$spacing-2xl: 48px;  // Double Extra Large (48px)
+$spacing-3xl: 64px;  // Triple Extra Large (64px)
+
+// Legacy spacing (backward compatibility)
+$spacing-4px: $spacing-xs;
+$spacing-8px: $spacing-sm;
+$spacing-16px: $spacing-md;
+$spacing-24px: $spacing-lg;
+$spacing-32px: $spacing-xl;
+$spacing-48px: $spacing-2xl;
+$spacing-64px: $spacing-3xl;
+
+// -----------------------------------------------------------------------------
+// 2. SKALA TIPOGRAFI (TYPOGRAPHY SCALE)
+// -----------------------------------------------------------------------------
+// Menggunakan 'rem' untuk aksesibilitas dan skalabilitas. 1rem = 16px (default browser).
+// Skala ini dibuat agar perbandingan antar ukuran font terlihat harmonis.
+$font-size-xs: 0.75rem;    // 12px - Untuk text kecil, label
+$font-size-sm: 0.875rem;   // 14px - Untuk text kecil, label
+$font-size-base: 1rem;     // 16px - Untuk body text (paragraf)
+$font-size-md: 1.125rem;   // 18px - Sedikit lebih besar dari body
+$font-size-lg: 1.25rem;    // 20px - Untuk sub-judul kecil
+$font-size-xl: 1.5rem;     // 24px - Heading 4 (H4) / Large text
+$font-size-2xl: 2rem;      // 32px - Heading 3 (H3)
+$font-size-3xl: 2.5rem;    // 40px - Heading 2 (H2)
+$font-size-4xl: 3rem;      // 48px - Heading 1 (H1)
+$font-size-5xl: 3.75rem;   // 60px - Hero headings
+$font-size-6xl: 4.5rem;    // 72px - Extra large headings
+
+// Font Families
+$font-primary: 'KH Interference', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-mono: 'PP FraktionMono', Consolas, Monaco, 'Courier New', monospace;
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line Heights
+$line-height-tight: 1.25;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+
+// Letter Spacing
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+$letter-spacing-widest: 0.1em;
+
+// -----------------------------------------------------------------------------
+// 3. PALET WARNA (COLOR PALETTE)
+// -----------------------------------------------------------------------------
+// Professional Black & White Theme
+$color-primary: #000000;
+$color-secondary: #ffffff;
+$color-text: #000000;
+$color-text-light: #666666;
+$color-text-muted: #999999;
+$color-background: #ffffff;
+$color-background-alt: #f8f8f8;
+$color-border: #e0e0e0;
+$color-border-light: #f0f0f0;
+
+// -----------------------------------------------------------------------------
+// 4. UKURAN RADIUS (BORDER RADIUS)
+// -----------------------------------------------------------------------------
+$border-radius-sm: 4px;     // Small radius
+$border-radius-md: 8px;     // Medium radius (default)
+$border-radius-lg: 16px;    // Large radius
+$border-radius-xl: 24px;    // Extra large radius
+$border-radius-full: 9999px; // Full radius (circle/pill)
+
+// -----------------------------------------------------------------------------
+// 5. BREAKPOINTS RESPONSIVE
+// -----------------------------------------------------------------------------
+$breakpoint-sm: 640px;   // Mobile landscape
+$breakpoint-md: 768px;   // Tablet
+$breakpoint-lg: 1024px;  // Laptop
+$breakpoint-xl: 1280px;  // Desktop
+$breakpoint-2xl: 1440px; // Ultra-wide screens
+
+// Legacy breakpoints (backward compatibility)
+$breakpoint-small-mobile: 480px;
+$breakpoint-mobile: $breakpoint-md;
+$breakpoint-tablet: $breakpoint-lg;
+$breakpoint-desktop: $breakpoint-xl;
+$breakpoint-wide: $breakpoint-2xl;
+
+// -----------------------------------------------------------------------------
+// 6. SHADOWS
+// -----------------------------------------------------------------------------
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+// -----------------------------------------------------------------------------
+// 7. TRANSITIONS
+// -----------------------------------------------------------------------------
+$transition-fast: 0.15s ease-in-out;
+$transition-normal: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;
+
+// -----------------------------------------------------------------------------
+// 8. LAYOUT SYSTEM
+// -----------------------------------------------------------------------------
+$container-max-width: 1280px; // Professional standard for desktop content containers
+$container-padding: $spacing-md;
+
+// -----------------------------------------------------------------------------
+// 9. FLUID TYPOGRAPHY (Optional)
+// -----------------------------------------------------------------------------
+$fluid-font-scale: clamp(0.875rem, 2.5vw, 1rem);   // Base font size
+$fluid-heading-scale: clamp(1.5rem, 5vw, 3rem);     // Heading scale

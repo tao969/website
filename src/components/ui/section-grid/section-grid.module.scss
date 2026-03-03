@@ -1,0 +1,124 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.gridContainer {
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr;
+  border-top: 1px solid $color-border;
+  border-left: 1px solid $color-border;
+  width: 100%;
+}
+
+.gridMarker {
+  position: absolute;
+  background-color: rgba($color-text, 0.3);
+  content: '';
+
+  &.topLeft,
+  &.topRight,
+  &.bottomLeft,
+  &.bottomRight {
+    &::before,
+    &::after {
+      position: absolute;
+      background-color: rgba($color-text, 0.3);
+      content: '';
+    }
+
+    &::before {
+      width: 9px;
+      height: 1px;
+    }
+
+    &::after {
+      width: 1px;
+      height: 9px;
+    }
+  }
+
+  &.topLeft {
+    top: -1px;
+    left: -1px;
+
+    &::before {
+      top: 0;
+      left: -4px;
+    }
+
+    &::after {
+      top: -4px;
+      left: 0;
+    }
+  }
+
+  &.topRight {
+    top: -1px;
+    right: -1px;
+
+    &::before {
+      top: 0;
+      right: -4px;
+    }
+
+    &::after {
+      top: -4px;
+      right: 0;
+    }
+  }
+
+  &.bottomLeft {
+    bottom: -1px;
+    left: -1px;
+
+    &::before {
+      bottom: 0;
+      left: -4px;
+    }
+
+    &::after {
+      bottom: -4px;
+      left: 0;
+    }
+  }
+
+  &.bottomRight {
+    right: -1px;
+    bottom: -1px;
+
+    &::before {
+      right: -4px;
+      bottom: 0;
+    }
+
+    &::after {
+      right: 0;
+      bottom: -4px;
+    }
+  }
+}
+
+@media (width >= 768px) {
+  .gridCols2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gridCols3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gridCols4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.gridItem {
+  position: relative;
+  border-right: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+  padding: $spacing-xl;
+
+  @include mobile {
+    padding: $spacing-lg;
+  }
+}

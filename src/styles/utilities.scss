@@ -1,0 +1,506 @@
+@use './abstracts/variables' as *;
+@use './abstracts/mixins' as *;
+
+// Utility Classes
+// Common utility classes for layout, spacing, and visual effects
+
+// Display Utilities
+.block {
+  display: block;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}
+
+// Flexbox Utilities
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+
+.items-start {
+  align-items: flex-start;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.items-end {
+  align-items: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+// Grid Utilities
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.gap-1 {
+  gap: $spacing-xs;
+}
+
+.gap-2 {
+  gap: $spacing-sm;
+}
+
+.gap-3 {
+  gap: $spacing-md;
+}
+
+.gap-4 {
+  gap: $spacing-lg;
+}
+
+.gap-5 {
+  gap: $spacing-xl;
+}
+
+// Spacing Utilities
+// Margin
+.m-0 { margin: 0; }
+.m-1 { margin: $spacing-xs; }
+.m-2 { margin: $spacing-sm; }
+.m-3 { margin: $spacing-md; }
+.m-4 { margin: $spacing-lg; }
+.m-5 { margin: $spacing-xl; }
+
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: $spacing-xs; }
+.mt-2 { margin-top: $spacing-sm; }
+.mt-3 { margin-top: $spacing-md; }
+.mt-4 { margin-top: $spacing-lg; }
+.mt-5 { margin-top: $spacing-xl; }
+
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: $spacing-xs; }
+.mb-2 { margin-bottom: $spacing-sm; }
+.mb-3 { margin-bottom: $spacing-md; }
+.mb-4 { margin-bottom: $spacing-lg; }
+.mb-5 { margin-bottom: $spacing-xl; }
+
+.ml-0 { margin-left: 0; }
+.ml-1 { margin-left: $spacing-xs; }
+.ml-2 { margin-left: $spacing-sm; }
+.ml-3 { margin-left: $spacing-md; }
+.ml-4 { margin-left: $spacing-lg; }
+.ml-5 { margin-left: $spacing-xl; }
+
+.mr-0 { margin-right: 0; }
+.mr-1 { margin-right: $spacing-xs; }
+.mr-2 { margin-right: $spacing-sm; }
+.mr-3 { margin-right: $spacing-md; }
+.mr-4 { margin-right: $spacing-lg; }
+.mr-5 { margin-right: $spacing-xl; }
+
+// Padding
+.p-0 { padding: 0; }
+.p-1 { padding: $spacing-xs; }
+.p-2 { padding: $spacing-sm; }
+.p-3 { padding: $spacing-md; }
+.p-4 { padding: $spacing-lg; }
+.p-5 { padding: $spacing-xl; }
+
+.pt-0 { padding-top: 0; }
+.pt-1 { padding-top: $spacing-xs; }
+.pt-2 { padding-top: $spacing-sm; }
+.pt-3 { padding-top: $spacing-md; }
+.pt-4 { padding-top: $spacing-lg; }
+.pt-5 { padding-top: $spacing-xl; }
+
+.pb-0 { padding-bottom: 0; }
+.pb-1 { padding-bottom: $spacing-xs; }
+.pb-2 { padding-bottom: $spacing-sm; }
+.pb-3 { padding-bottom: $spacing-md; }
+.pb-4 { padding-bottom: $spacing-lg; }
+.pb-5 { padding-bottom: $spacing-xl; }
+
+.pl-0 { padding-left: 0; }
+.pl-1 { padding-left: $spacing-xs; }
+.pl-2 { padding-left: $spacing-sm; }
+.pl-3 { padding-left: $spacing-md; }
+.pl-4 { padding-left: $spacing-lg; }
+.pl-5 { padding-left: $spacing-xl; }
+
+.pr-0 { padding-right: 0; }
+.pr-1 { padding-right: $spacing-xs; }
+.pr-2 { padding-right: $spacing-sm; }
+.pr-3 { padding-right: $spacing-md; }
+.pr-4 { padding-right: $spacing-lg; }
+.pr-5 { padding-right: $spacing-xl; }
+
+// Width Utilities
+.w-full {
+  width: 100%;
+}
+
+.w-auto {
+  width: auto;
+}
+
+.w-fit {
+  width: fit-content;
+}
+
+// Height Utilities
+.h-full {
+  height: 100%;
+}
+
+.h-auto {
+  height: auto;
+}
+
+.h-fit {
+  height: fit-content;
+}
+
+// Position Utilities
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+// Overflow Utilities
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+// Border Utilities
+.border {
+  border: 1px solid $color-border;
+}
+
+.border-t {
+  border-top: 1px solid $color-border;
+}
+
+.border-b {
+  border-bottom: 1px solid $color-border;
+}
+
+.border-l {
+  border-left: 1px solid $color-border;
+}
+
+.border-r {
+  border-right: 1px solid $color-border;
+}
+
+.border-0 {
+  border: none;
+}
+
+// Border Radius Utilities
+.rounded-sm {
+  border-radius: $border-radius-sm;
+}
+
+.rounded-md {
+  border-radius: $border-radius-md;
+}
+
+.rounded-lg {
+  border-radius: $border-radius-lg;
+}
+
+.rounded-full {
+  border-radius: 50%;
+}
+
+// Shadow Utilities
+.shadow-sm {
+  box-shadow: $shadow-sm;
+}
+
+.shadow-md {
+  box-shadow: $shadow-md;
+}
+
+.shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+.shadow-none {
+  box-shadow: none;
+}
+
+// Background Utilities
+.bg-primary {
+  background-color: $color-primary;
+  color: $color-secondary;
+}
+
+.bg-secondary {
+  background-color: $color-secondary;
+  color: $color-primary;
+}
+
+.bg-alt {
+  background-color: $color-background-alt;
+}
+
+// Professional Responsive Utilities - Mobile-First Approach
+@include mobile {
+  .mobile-hidden {
+    display: none;
+  }
+
+  .mobile-block {
+    display: block;
+  }
+
+  .mobile-flex {
+    display: flex;
+  }
+
+  .mobile-grid {
+    display: grid;
+  }
+}
+
+@include tablet {
+  .tablet-hidden {
+    display: none;
+  }
+
+  .tablet-block {
+    display: block;
+  }
+
+  .tablet-flex {
+    display: flex;
+  }
+
+  .tablet-grid {
+    display: grid;
+  }
+}
+
+@include desktop {
+  .desktop-hidden {
+    display: none;
+  }
+
+  .desktop-block {
+    display: block;
+  }
+
+  .desktop-flex {
+    display: flex;
+  }
+
+  .desktop-grid {
+    display: grid;
+  }
+}
+
+@include large-desktop {
+  .large-desktop-hidden {
+    display: none;
+  }
+
+  .large-desktop-block {
+    display: block;
+  }
+
+  .large-desktop-flex {
+    display: flex;
+  }
+
+  .large-desktop-grid {
+    display: grid;
+  }
+}
+
+// Fluid Typography Utilities
+.fluid-text-sm {
+  font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+.fluid-text-base {
+  font-size: clamp(1rem, 2.5vw, 1.125rem);
+}
+
+.fluid-text-lg {
+  font-size: clamp(1.125rem, 3vw, 1.25rem);
+}
+
+.fluid-text-xl {
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+}
+
+.fluid-text-2xl {
+  font-size: clamp(1.5rem, 5vw, 2rem);
+}
+
+.fluid-text-3xl {
+  font-size: clamp(2rem, 6vw, 2.5rem);
+}
+
+// Responsive Container Utilities
+.container-sm {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 $spacing-sm;
+}
+
+.container-md {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 $spacing-sm;
+}
+
+.container-lg {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 $spacing-sm;
+}
+
+.container-xl {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 $spacing-sm;
+}
+
+.container-2xl {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 $spacing-sm;
+}
+
+// Aspect Ratio Utilities
+.aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.aspect-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+// Flexible Height Utilities (Content-Determined)
+.h-content {
+  height: auto;
+  min-height: fit-content;
+}
+
+.h-viewport {
+  height: 100vh;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+// Professional Grid Breakpoint Utilities
+.grid-responsive-1 {
+  grid-template-columns: 1fr;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-responsive-2 {
+  grid-template-columns: 1fr;
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include large-desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,0 +1,21 @@
+@use '../../styles/abstracts/variables' as *;
+
+.root {
+  min-height: 60vh;
+  display: flex;
+  align-items: flex-start;
+  padding-top: $spacing-4xl;
+}
+
+.skeleton {
+  width: 120px;
+  height: 1px;
+  background: var(--color-faint);
+  margin-inline: auto;
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}

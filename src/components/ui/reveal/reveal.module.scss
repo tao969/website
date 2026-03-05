@@ -1,0 +1,30 @@
+/**
+ * RevealSection — scroll-triggered entrance animation.
+ *
+ * Initial state: invisible, shifted down.
+ * When .visible is added by IntersectionObserver: transitions to full opacity + position.
+ * --reveal-delay: CSS custom property for stagger offset (set inline by component).
+ */
+
+/**
+ * Base state: hidden and shifted down.
+ * NO transition here — when .visible is removed the element hides instantly.
+ * This prevents elements "sliding away" as the user scrolls past them.
+ */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  will-change: opacity, transform;
+}
+
+/**
+ * Visible state: transition only applies when entering.
+ * easeOutExpo (0.16, 1, 0.3, 1) gives a natural deceleration feel.
+ */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
+    transform 0.75s cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
+}

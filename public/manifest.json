@@ -1,7 +1,7 @@
 {
-  "name": "Taopik Hidayat - Portfolio",
-  "short_name": "Taopik Portfolio",
-  "description": "Personal portfolio website of Taopik Hidayat - Developer exploring AI and Web3 technologies",
+  "name": "tao",
+  "short_name": "tao",
+  "description": "tao",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

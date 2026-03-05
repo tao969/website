@@ -1,0 +1,63 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.root {
+  border-top: 1px solid transparent;
+  padding: $spacing-lg 0 0;
+
+  @include tablet {
+    padding: $spacing-xl 0 0;
+  }
+}
+
+.header {
+  align-items: baseline;
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm $spacing-md;
+  margin-bottom: $spacing-sm;
+  padding: 0 $spacing-xl;
+
+  @include tablet {
+    gap: $spacing-md;
+    padding: 0 $spacing-2xl;
+  }
+}
+
+.label {
+  color: $color-muted;
+  display: inline-flex;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-widest;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.title {
+  color: $color-faint;
+  display: inline-flex;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.description {
+  color: $color-muted;
+  font-family: Lora, $font-mono;
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+  margin: 0;
+}
+
+// Stacking context for the absolutely-positioned canvas
+.canvas {
+  min-height: 100svh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+

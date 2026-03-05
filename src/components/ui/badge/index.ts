@@ -1,1 +1,0 @@
-export { AnimatedBrandIcon } from './badge';

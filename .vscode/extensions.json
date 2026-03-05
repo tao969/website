@@ -1,0 +1,26 @@
+{
+  "recommendations": [
+    // Formatting
+    "esbenp.prettier-vscode",
+
+    // Linting
+    "dbaeumer.vscode-eslint",
+    "stylelint.vscode-stylelint",
+
+    // TypeScript / React
+    "ms-vscode.vscode-typescript-next",
+
+    // SCSS
+    "csstools.postcss",
+
+    // Next.js
+    "vercel.turbopack-extension",
+
+    // Git
+    "eamodio.gitlens",
+
+    // DX
+    "christian-kohler.path-intellisense",
+    "formulahendry.auto-rename-tag"
+  ]
+}

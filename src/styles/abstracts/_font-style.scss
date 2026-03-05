@@ -61,15 +61,15 @@
 
 // Text Shadow
 .text-shadow-sm {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 1px 2px rgb(0 0 0 / 10%);
 }
 
 .text-shadow-md {
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 2px 4px rgb(0 0 0 / 10%);
 }
 
 .text-shadow-lg {
-  text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-shadow: 0 4px 8px rgb(0 0 0 / 10%);
 }
 
 .text-shadow-none {
@@ -129,7 +129,7 @@
 }
 
 .break-words {
-  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .break-all {
@@ -184,19 +184,19 @@
 
 // Font Feature Settings
 .font-ligatures {
-  font-feature-settings: "liga" 1, "kern" 1;
+  font-feature-settings: 'liga' 1, 'kern' 1;
 }
 
 .font-no-ligatures {
-  font-feature-settings: "liga" 0;
+  font-feature-settings: 'liga' 0;
 }
 
 .font-tabular {
-  font-feature-settings: "tnum" 1;
+  font-feature-settings: 'tnum' 1;
 }
 
 .font-proportional {
-  font-feature-settings: "tnum" 0;
+  font-feature-settings: 'tnum' 0;
 }
 
 // Text Selection

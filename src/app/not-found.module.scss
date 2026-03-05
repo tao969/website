@@ -1,0 +1,92 @@
+@use '../styles/abstracts/variables' as *;
+@use '../styles/abstracts/mixins' as *;
+@use '../styles/abstracts/fonts' as *;
+
+.notFound {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: $spacing-md;
+
+  @include tablet {
+    padding: $spacing-lg;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 $spacing-md;
+  text-align: center;
+  width: 100%;
+
+  @include tablet {
+    max-width: 500px;
+    padding: 0;
+  }
+}
+
+.title {
+  color: $color-text;
+  font-family: var(--font-kh);
+  font-size: clamp(4rem, 12vw, 6rem);
+  font-weight: 300;
+  line-height: 1;
+  margin-bottom: $spacing-sm;
+
+  @include tablet {
+    margin-bottom: $spacing-md;
+  }
+}
+
+.subtitle {
+  color: $color-text;
+  font-family: var(--font-kh);
+  font-size: $font-size-lg;
+  font-weight: 400;
+  margin-bottom: $spacing-sm;
+
+  @include tablet {
+    font-size: $font-size-xl;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.description {
+  color: $color-text-light;
+  font-family: var(--font-pp);
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  margin-bottom: $spacing-lg;
+
+  @include tablet {
+    font-size: $font-size-base;
+    line-height: 1.5;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.homeLink {
+  border: 1px solid $color-text;
+  border-radius: $border-radius-sm;
+  color: $color-text;
+  display: inline-block;
+  font-family: var(--font-kh);
+  font-size: $font-size-sm;
+  min-height: 44px;
+  padding: $spacing-xs $spacing-md;
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  @include tablet {
+    font-size: $font-size-base;
+    min-height: unset;
+    padding: $spacing-sm $spacing-lg;
+  }
+
+  &:hover {
+    background-color: $color-text;
+    color: $color-background;
+  }
+}

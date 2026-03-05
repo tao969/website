@@ -37,7 +37,4 @@ export const ppFraktionMono = localFont({
   fallback: ['Consolas', 'Monaco', 'Courier New', 'monospace'],
 });
 
-// Legacy exports for backward compatibility
-export const inter = khInterference;
-export const poppins = khInterference;
-export const mono = ppFraktionMono;
+

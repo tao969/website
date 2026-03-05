@@ -10,8 +10,8 @@ html {
 
 // Custom Scrollbar
 ::-webkit-scrollbar {
-  width: 8px;
   height: 8px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
@@ -35,8 +35,8 @@ html {
 
 // Firefox Scrollbar
 * {
-  scrollbar-width: thin;
   scrollbar-color: $color-border $color-background-alt;
+  scrollbar-width: thin;
 }
 
 // Scroll Snap
@@ -66,13 +66,11 @@ html {
 }
 
 .scroll-x {
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: auto hidden;
 }
 
 .scroll-y {
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden auto;
 }
 
 // Scroll Padding
@@ -95,8 +93,8 @@ html {
 
 // Smooth Scrolling Container
 .smooth-scroll {
-  scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }
 
 // Hide Scrollbar (but keep functionality)
@@ -131,41 +129,41 @@ html {
 
 // Scroll Indicator
 .scroll-indicator {
+  background: $color-border-light;
+  height: 3px;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 3px;
-  background: $color-border-light;
   z-index: 1000;
 
   &::before {
+    background: $color-primary;
     content: '';
+    height: 100%;
+    left: 0;
     position: absolute;
     top: 0;
-    left: 0;
-    height: 100%;
-    background: $color-primary;
-    width: 0%;
     transition: width $transition-normal;
+    width: 0%;
   }
 }
 
 // Scroll to Top Button
 .scroll-to-top {
-  position: fixed;
-  bottom: $spacing-lg;
-  right: $spacing-lg;
-  width: 48px;
-  height: 48px;
   background: $color-primary;
-  color: $color-secondary;
   border: none;
   border-radius: 50%;
+  bottom: $spacing-lg;
+  color: $color-secondary;
   cursor: pointer;
+  height: 48px;
   opacity: 0;
-  visibility: hidden;
+  position: fixed;
+  right: $spacing-lg;
   transition: all $transition-normal;
+  visibility: hidden;
+  width: 48px;
   z-index: 1000;
 
   &.visible {
@@ -174,7 +172,7 @@ html {
   }
 
   &:hover {
-    transform: translateY(-2px);
     box-shadow: $shadow-lg;
+    transform: translateY(-2px);
   }
 }

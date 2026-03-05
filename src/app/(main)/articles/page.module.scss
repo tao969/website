@@ -1,0 +1,80 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page {
+  animation: reveal-up 0.5s ease both;
+  width: 100%;
+}
+
+.pageHeader {
+  align-items: baseline;
+  display: flex;
+  gap: $spacing-lg;
+  padding: $spacing-xl 0 $spacing-lg;
+
+  @include tablet {
+    padding: $spacing-2xl 0 $spacing-xl;
+  }
+}
+
+.pageIndex {
+  color: $color-muted;
+  flex-shrink: 0;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+}
+
+.pageTitle {
+  color: $color-ink;
+  font-family: $font-primary;
+  font-size: clamp($font-size-3xl, 10vw, $font-size-4xl);
+  font-weight: $font-weight-light;
+  letter-spacing: $letter-spacing-tightest;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.comingSoon {
+  padding: $spacing-3xl 0;
+
+  @include tablet {
+    padding: $spacing-4xl 0;
+  }
+}
+
+.comingSoonInner {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  max-width: 480px;
+}
+
+.comingSoonLabel {
+  color: $color-accent;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+}
+
+.comingSoonText {
+  color: $color-muted;
+  font-family: $font-mono;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+}

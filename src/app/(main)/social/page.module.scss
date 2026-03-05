@@ -1,0 +1,59 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+/**
+ * Social page wrapper and header.
+ * Platform row styles live in:
+ *   @/components/features/social/platform-list.module.scss
+ */
+
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page {
+  animation: reveal-up 0.5s ease both;
+  width: 100%;
+}
+
+.pageHeader {
+  align-items: baseline;
+  display: flex;
+  gap: $spacing-lg;
+  padding: $spacing-xl 0 $spacing-lg;
+
+  @include tablet {
+    padding: $spacing-2xl 0 $spacing-xl;
+  }
+}
+
+.pageIndex {
+  color: $color-muted;
+  flex-shrink: 0;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+}
+
+.pageTitle {
+  color: $color-ink;
+  font-family: $font-primary;
+  font-size: clamp($font-size-3xl, 10vw, $font-size-4xl);
+  font-weight: $font-weight-light;
+  letter-spacing: $letter-spacing-tightest;
+  line-height: 1;
+  margin: 0;
+  text-transform: uppercase;
+}

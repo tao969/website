@@ -1,0 +1,55 @@
+{
+  // Editor
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.stylelint": "explicit"
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  // Language-specific formatters
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // TypeScript
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+
+  // ESLint
+  "eslint.useFlatConfig": true,
+  "eslint.validate": ["javascript", "typescript", "typescriptreact"],
+
+  // Stylelint
+  "stylelint.validate": ["scss"],
+  "css.validate": false,
+  "scss.validate": false,
+
+  // File explorer — hide noise
+  "files.exclude": {
+    "**/.next": true,
+    "**/node_modules": true,
+    "*.tsbuildinfo": true
+  },
+
+  // Explorer file nesting
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.test.ts, ${capture}.test.tsx",
+    "*.tsx": "${capture}.module.scss, ${capture}.test.tsx",
+    "package.json": "pnpm-lock.yaml, .env.example",
+    "next.config.ts": "tsconfig.json, eslint.config.mjs, .prettierrc, .stylelintrc.json, postcss.config.*"
+  }
+}

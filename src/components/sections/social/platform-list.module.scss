@@ -1,0 +1,78 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.list {
+  width: 100%;
+}
+
+.row {
+  color: inherit;
+  display: block;
+  text-decoration: none;
+  transition: background $transition-fast;
+
+  &:hover:not(.rowDisabled),
+  &:active:not(.rowDisabled) {
+    background: $color-paper-alt;
+
+    .rowArrow {
+      color: $color-accent;
+      transform: translate(3px, -3px);
+    }
+
+    .rowName {
+      color: $color-accent;
+    }
+  }
+}
+
+.rowDisabled {
+  cursor: default;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+.rowInner {
+  align-items: center;
+  display: grid;
+  gap: $spacing-md;
+  grid-template-columns: 32px 1fr auto;
+  min-height: 52px;
+  padding: $spacing-md 0;
+
+  @include tablet {
+    gap: $spacing-xl;
+    grid-template-columns: 40px 1fr auto;
+    padding: $spacing-lg 0;
+  }
+}
+
+.rowIndex {
+  color: $color-faint;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.rowName {
+  color: $color-ink;
+  font-family: $font-mono;
+  font-size: $font-size-base;
+  letter-spacing: $letter-spacing-normal;
+  transition: color $transition-fast;
+}
+
+.rowArrow {
+  color: $color-muted;
+  display: inline-block;
+  font-size: $font-size-base;
+  transition: color $transition-fast, transform $transition-normal;
+}
+
+.rowUnavailable {
+  color: $color-faint;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-wide;
+  text-transform: uppercase;
+}

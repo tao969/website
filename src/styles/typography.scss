@@ -7,27 +7,32 @@
 // Headings
 h1 {
   @include heading-1;
+
   margin-bottom: $spacing-lg;
 }
 
 h2 {
   @include heading-2;
+
   margin-bottom: $spacing-md;
 }
 
 h3 {
   @include heading-3;
+
   margin-bottom: $spacing-md;
 }
 
 h4 {
   @include heading-4;
+
   margin-bottom: $spacing-sm;
 }
 
 // Body Text
 p {
   @include body-text;
+
   margin-bottom: $spacing-md;
 
   &:last-child {
@@ -64,8 +69,8 @@ p {
 }
 
 .text-uppercase {
-  text-transform: uppercase;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .text-lowercase {

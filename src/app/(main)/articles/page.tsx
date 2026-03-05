@@ -1,23 +1,26 @@
-import styles from './articles.module.scss';
+import { PageTitle } from '@/components/ui/scramble';
+import styles from './page.module.scss';
 
 export default function ArticlesPage() {
   return (
-    <div className="container">
-      <section className={styles.articlesSection}>
-        <div className={styles.articlesContent}>
-          <h1 className={styles.articlesTitle}>Articles</h1>
+    <div className={styles.page}>
+      <div className="container">
+        <div className={styles.pageHeader}>
+          <span className={styles.pageIndex}>03</span>
+          <PageTitle className={styles.pageTitle}>Articles</PageTitle>
+        </div>
 
-        <div className={styles.articlesContainer}>
-          <div className={styles.naBadge}>
-            <span className={styles.naText}>N/A</span>
+        <div className={styles.comingSoon}>
+          <div className={styles.comingSoonInner}>
+            <p className={styles.comingSoonLabel}>In progress</p>
+            <p className={styles.comingSoonText}>
+              Writing on technology, development, and AI-augmented workflows.
+              <br />
+              Coming soon.
+            </p>
           </div>
-
-          <p className={styles.articlesNote}>
-            Articles will be available soon. Stay tuned for insights on technology, design, and development.
-          </p>
         </div>
       </div>
-    </section>
     </div>
   );
 }

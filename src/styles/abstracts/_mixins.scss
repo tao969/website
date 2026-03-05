@@ -2,20 +2,20 @@
 
 // Layout Mixins
 @mixin container {
-  max-width: $container-max-width;
   margin: 0 auto;
+  max-width: $container-max-width;
   padding: 0 $container-padding;
 }
 
 @mixin flex-center {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
 }
 
 @mixin flex-between {
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: space-between;
 }
 
@@ -80,20 +80,20 @@
 
 // Visual Mixins
 @mixin visually-hidden {
-  position: absolute;
-  width: 1px;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  padding: 0;
+  position: absolute;
   white-space: nowrap;
-  border: 0;
+  width: 1px;
 }
 
 @mixin focus-visible {
-  outline: 2px solid $color-primary;
-  outline-offset: 2px;
+  outline: 1.5px solid $color-accent;
+  outline-offset: 3px;
 }
 
 @mixin hover-lift {
@@ -110,35 +110,35 @@
   .borderBottom,
   .borderLeft,
   .borderRight {
-    position: absolute;
-    z-index: 10;
-    transition: transform 0.3s ease-in-out;
     background-color: $color-text;
+    position: absolute;
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
   }
 
   .borderTop,
   .borderBottom {
+    height: 1px;
     transform: scaleX(0);
     width: 100%;
-    height: 1px;
   }
 
   .borderLeft,
   .borderRight {
+    height: 100%;
     transform: scaleY(0);
     width: 1px;
-    height: 100%;
   }
 
   .borderTop {
-    top: 0;
     left: 0;
+    top: 0;
     transform-origin: left;
   }
 
   .borderBottom {
-    right: 0;
     bottom: 0;
+    right: 0;
     transform-origin: right;
   }
 
@@ -149,8 +149,8 @@
   }
 
   .borderRight {
-    top: 0;
     right: 0;
+    top: 0;
     transform-origin: top;
   }
 
@@ -183,36 +183,36 @@
 }
 
 @mixin grid-layout($columns: 3, $rows: 2, $mobile-columns: 2, $mobile-rows: 3) {
+  background-color: $color-border;
+  border: 1px solid $color-border;
   display: grid;
+  gap: 1px;
   grid-template-columns: repeat($columns, 1fr);
   grid-template-rows: repeat($rows, 1fr);
-  gap: 1px;
-  border: 1px solid $color-border;
-  background-color: $color-border;
   max-width: 100%;
   overflow: hidden;
 
   @include mobile {
+    gap: 0.5px;
     grid-template-columns: repeat($mobile-columns, 1fr);
     grid-template-rows: repeat($mobile-rows, 1fr);
-    gap: 0.5px;
     margin: 0 $spacing-sm;
   }
 }
 
 @mixin grid-item-base($min-height: 180px, $mobile-min-height: 140px) {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  background-color: $color-background;
   aspect-ratio: 1 / 1;
+  background-color: $color-background;
+  color: $color-text;
+  display: flex;
+  flex-direction: column;
   min-height: $min-height;
   overflow: hidden;
-  color: $color-text;
+  position: relative;
 
   @include mobile {
-    min-height: $mobile-min-height;
     aspect-ratio: 1 / 1;
+    min-height: $mobile-min-height;
   }
 }
 
@@ -255,38 +255,38 @@
 }
 
 @mixin corner-element {
-  position: absolute;
-  display: inline-flex;
   align-items: center;
+  display: inline-flex;
   gap: $spacing-xs;
-  min-width: 0;
-  z-index: 10;
   max-width: 60%;
+  min-width: 0;
+  position: absolute;
+  z-index: 10;
 }
 
 @mixin corner-arrow {
-  position: absolute;
-  display: inline-flex;
-  justify-content: center;
   align-items: center;
-  width: 16px;
-  height: 16px;
   color: $color-primary;
+  display: inline-flex;
+  height: 16px;
+  justify-content: center;
+  position: absolute;
+  width: 16px;
   z-index: 10;
 
   svg {
-    width: 12px;
     height: 12px;
+    width: 12px;
   }
 }
 
 @mixin link-underline {
-  text-decoration: none;
   display: block;
-  position: relative;
-  transition: color $transition-fast;
-  line-height: 1;
   font-weight: $font-weight-medium;
+  line-height: 1;
+  position: relative;
+  text-decoration: none;
+  transition: color $transition-fast;
 
   &:hover {
     color: $color-text-light;
@@ -297,23 +297,23 @@
 
 // Animation Mixins
 @mixin fade-in($duration: $transition-normal) {
+  animation: fade-in $duration ease-in-out forwards;
   opacity: 0;
-  animation: fadeIn $duration ease-in-out forwards;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   to {
     opacity: 1;
   }
 }
 
 @mixin slide-up($duration: $transition-normal) {
+  animation: slide-up $duration ease-out forwards;
   opacity: 0;
   transform: translateY(20px);
-  animation: slideUp $duration ease-out forwards;
 }
 
-@keyframes slideUp {
+@keyframes slide-up {
   to {
     opacity: 1;
     transform: translateY(0);
@@ -325,11 +325,10 @@
   -webkit-tap-highlight-color: transparent;
   transition: transform $duration, opacity $duration;
   user-select: none;
-  -webkit-user-select: none;
 
   &:active {
-    transform: scale($scale);
     opacity: $opacity;
+    transform: scale($scale);
   }
 
   @media (hover: hover) and (pointer: fine) {
@@ -353,9 +352,9 @@
   font-family: $font-primary;
   font-size: $size;
   font-weight: $font-weight-light;
-  line-height: 1;
   letter-spacing: -0.03em; // Aggressive negative spacing untuk visual impact
-  text-rendering: optimizeLegibility;
+  line-height: 1;
+  text-rendering: optimizelegibility;
 }
 
 // PERAN 2: THE ANCHOR - KH Interference Regular (Ukuran 24px - 48px)
@@ -364,21 +363,21 @@
   font-family: $font-primary;
   font-size: $size;
   font-weight: $weight;
-  line-height: 1.2;
   letter-spacing: -0.015em; // Medium spacing untuk readability
-  text-rendering: optimizeLegibility;
+  line-height: 1.2;
+  text-rendering: optimizelegibility;
 }
 
 // PERAN 3: THE INFORMATION - PP Fraktion Mono (Ukuran 12px - 16px)
 // Gunakan untuk: Menu, tag, label, caption, body text
 @mixin font-information($size: $font-size-base, $transform: none) {
   font-family: $font-mono;
+  font-kerning: auto;
   font-size: $size;
   font-weight: $font-weight-regular;
-  line-height: 1.5;
   letter-spacing: 0.02em; // Positive spacing untuk clarity data
+  line-height: 1.5;
   text-transform: $transform; // Bisa 'uppercase' untuk label
-  font-kerning: auto;
 }
 
 // VARIASI KHUSUS
@@ -386,6 +385,7 @@
 // The Atmosphere - Varian untuk Statistik/Angka
 @mixin font-atmosphere-stat {
   @include font-atmosphere($font-size-6xl);
+
   font-variant-numeric: tabular-nums; // Agar angka rata lurus
   letter-spacing: -0.05em; // Extra tight spacing untuk impact maksimal
 }
@@ -393,20 +393,23 @@
 // The Anchor - Varian untuk CTA/Button
 @mixin font-anchor-cta {
   @include font-anchor($font-size-lg, $font-weight-regular);
+
+  font-weight: $font-weight-semibold;
   letter-spacing: 0.01em;
   text-transform: uppercase;
-  font-weight: $font-weight-semibold;
 }
 
 // The Anchor - Varian untuk Card Title (Medium)
 @mixin font-anchor-card {
   @include font-anchor($font-size-2xl, $font-weight-regular);
+
   letter-spacing: -0.01em;
 }
 
 // The Information - Varian untuk Label/Tag
 @mixin font-information-label {
   @include font-information($font-size-xs, uppercase);
+
   font-weight: $font-weight-medium;
   letter-spacing: 0.05em; // Extra wide untuk label
 }
@@ -414,6 +417,7 @@
 // The Information - Varian untuk Menu/Navigation
 @mixin font-information-nav {
   @include font-information($font-size-sm, uppercase);
+
   font-weight: $font-weight-regular;
   letter-spacing: 0.04em;
 }
@@ -421,6 +425,7 @@
 // The Information - Varian untuk Caption/Meta
 @mixin font-information-caption {
   @include font-information($font-size-xs);
+
   color: $color-text-light;
   font-style: italic;
 }
@@ -428,8 +433,9 @@
 // The Information - Varian untuk Body Paragraph
 @mixin font-information-body {
   @include font-information($font-size-base);
-  line-height: 1.7;
+
   letter-spacing: 0.005em;
+  line-height: 1.7;
 }
 
 // Alternative tap feedback with color change
@@ -437,11 +443,11 @@
   -webkit-tap-highlight-color: transparent;
   transition: transform $duration, opacity $duration, color $duration;
   user-select: none;
-  -webkit-user-select: none;
 
   &:active {
-    transform: scale($scale);
     opacity: $opacity;
+    transform: scale($scale);
+
     @if $color-change {
       color: $color-text-light;
     }

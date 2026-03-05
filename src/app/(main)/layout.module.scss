@@ -1,17 +1,16 @@
 @use '../../styles/abstracts/variables' as *;
 @use '../../styles/abstracts/mixins' as *;
 
-// Page Layout - Professional Structure
+// Root layout — flex column, full viewport height
 .page {
-  min-height: 100vh;
+  background: $color-paper;
   display: flex;
   flex-direction: column;
-  background: $color-background;
+  min-height: 100vh;
 }
 
-// Main Content - Professional Layout
 .main {
-  flex: 1;
   display: flex;
+  flex: 1;
   flex-direction: column;
 }

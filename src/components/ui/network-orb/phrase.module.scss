@@ -1,0 +1,45 @@
+@use '../../../styles/abstracts/variables' as *;
+
+// Positioned via inline style (left/top from canvas node coords).
+// pointer-events: none keeps it non-interactive.
+.wrap {
+  pointer-events: none;
+  position: absolute;
+  white-space: nowrap;
+  z-index: 2;
+}
+
+.phrase {
+  color: $color-ink;
+  display: inline-block;
+  font-family: $font-mono;
+  font-size: $font-size-sm;           // 12px — quiet but legible
+  letter-spacing: $letter-spacing-wider;
+  opacity: 0;
+  text-transform: lowercase;
+  transform: translateY(4px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Blinking caret after the text
+.cursor {
+  animation: blink 0.9s step-end infinite;
+  border-right: 1px solid $color-muted;
+  display: inline-block;
+  height: 0.85em;
+  margin-left: 2px;
+  vertical-align: middle;
+  width: 0;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}

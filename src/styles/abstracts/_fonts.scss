@@ -2,27 +2,27 @@
 
 // Font Face Declarations
 @font-face {
+  font-display: swap;
   font-family: 'KH Interference';
-  src: url('/fonts/kh-interference/KHInterference-Light.woff2') format('woff2');
+  font-style: normal;
   font-weight: 300;
-  font-style: normal;
-  font-display: swap;
+  src: url('/fonts/kh-interference/KHInterference-Light.woff2') format('woff2');
 }
 
 @font-face {
+  font-display: swap;
   font-family: 'KH Interference';
-  src: url('/fonts/kh-interference/KHInterference-Regular.woff2') format('woff2');
-  font-weight: 400;
   font-style: normal;
-  font-display: swap;
+  font-weight: 400;
+  src: url('/fonts/kh-interference/KHInterference-Regular.woff2') format('woff2');
 }
 
 @font-face {
-  font-family: 'PP FraktionMono';
-  src: url('/fonts/pp-fraktion/PPFraktionMono-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
   font-display: swap;
+  font-family: 'PP FraktionMono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/pp-fraktion/PPFraktionMono-Regular.woff2') format('woff2');
 }
 
 // Typography Mixins
@@ -30,8 +30,8 @@
   font-family: $font-primary;
   font-size: $font-size-5xl;
   font-weight: $font-weight-light;
-  line-height: $line-height-tight;
   letter-spacing: -0.025em;
+  line-height: $line-height-tight;
 
   @media (max-width: $breakpoint-mobile) {
     font-size: $font-size-4xl;
@@ -42,8 +42,8 @@
   font-family: $font-primary;
   font-size: $font-size-4xl;
   font-weight: $font-weight-light;
-  line-height: $line-height-tight;
   letter-spacing: -0.025em;
+  line-height: $line-height-tight;
 
   @media (max-width: $breakpoint-mobile) {
     font-size: $font-size-3xl;
@@ -54,8 +54,8 @@
   font-family: $font-primary;
   font-size: $font-size-3xl;
   font-weight: $font-weight-regular;
-  line-height: $line-height-tight;
   letter-spacing: -0.025em;
+  line-height: $line-height-tight;
 
   @media (max-width: $breakpoint-mobile) {
     font-size: $font-size-2xl;
@@ -88,17 +88,17 @@
 }
 
 @mixin caption {
+  color: $color-text-light;
   font-family: $font-mono;
   font-size: $font-size-sm;
   font-weight: $font-weight-regular;
   line-height: $line-height-normal;
-  color: $color-text-light;
 }
 
 @mixin small-text {
+  color: $color-text-muted;
   font-family: $font-mono;
   font-size: $font-size-xs;
   font-weight: $font-weight-regular;
   line-height: $line-height-normal;
-  color: $color-text-muted;
 }

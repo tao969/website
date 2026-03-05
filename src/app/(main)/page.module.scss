@@ -1,0 +1,17 @@
+@use '../../styles/abstracts/variables' as *;
+
+/**
+ * Home page wrapper.
+ * All section styles are co-located with their feature components:
+ *   - HeroSection   → @/components/features/home/hero-section.module.scss
+ *   - ContentSection → @/components/features/home/content-section.module.scss
+ */
+.page {
+  width: 100%;
+}
+
+.sectionFallback {
+  border-top: 1px solid transparent;
+  min-height: 72svh;
+  width: 100%;
+}

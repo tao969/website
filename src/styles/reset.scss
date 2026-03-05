@@ -17,8 +17,8 @@ body {
 }
 
 body {
-  line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
 }
 
 img,
@@ -56,10 +56,10 @@ h6 {
 button {
   background: none;
   border: none;
-  padding: 0;
-  font: inherit;
   cursor: pointer;
+  font: inherit;
   outline: inherit;
+  padding: 0;
 }
 
 // Remove default list styles
@@ -100,32 +100,32 @@ textarea {
 }
 
 // Remove default input styles
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="number"],
-input[type="tel"],
-input[type="url"],
-input[type="search"] {
+input[type='text'],
+input[type='email'],
+input[type='password'],
+input[type='number'],
+input[type='tel'],
+input[type='url'],
+input[type='search'] {
   appearance: none;
+  background: none;
   border: none;
   outline: none;
-  background: none;
 }
 
 // Remove default select styles
 select {
   appearance: none;
+  background: none;
   border: none;
   outline: none;
-  background: none;
 }
 
 // Remove default checkbox and radio styles
-input[type="checkbox"],
-input[type="radio"] {
+input[type='checkbox'],
+input[type='radio'] {
   appearance: none;
+  background: none;
   border: none;
   outline: none;
-  background: none;
 }

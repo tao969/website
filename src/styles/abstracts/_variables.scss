@@ -1,47 +1,25 @@
 // =============================================================================
-// 🎨 DESIGN TOKENS - SUMBER KEBENARAN TUNGGAL UNTUK STYLING
-//
-// Sistem ini menggunakan pendekatan "Design Tokens" yang profesional:
-// ✅ Skala spasi berbasis 8px untuk ritme visual yang konsisten
-// ✅ Typography scale dengan rem units untuk aksesibilitas
-// ✅ Color palette terstruktur
-// ✅ Border radius scale yang sistematis
-// ✅ Breakpoints responsif yang terorganisir
-//
-// PENTING: Selalu gunakan variabel ini, bukan nilai hardcoded!
-//
-// CONTOH PENGGUNAAN YANG BENAR:
-//
-// ✅ BENAR:
-// .button {
-//   padding: $spacing-md $spacing-lg;      // 16px 24px
-//   font-size: $font-size-base;           // 1rem (16px)
-//   color: $color-text;                   // #000000
-//   border-radius: $border-radius-md;     // 8px
-// }
-//
-// ❌ SALAH (Jangan lakukan ini):
-// .button {
-//   padding: 13px 25px;     // Angka acak!
-//   font-size: 17px;        // Angka acak!
-//   color: #333;           // Warna acak!
-//   border-radius: 5px;     // Angka acak!
-// }
-//
+// DESIGN TOKENS - Single source of truth for all design decisions
+// Aesthetic direction: Minimal Brutalist / Swiss Editorial
+// - Monochromatic core with warm accent
+// - 8px spacing system for visual rhythm
+// - Type scale optimized for editorial hierarchy
+// - Grid-first layout approach
 // =============================================================================
 
 // -----------------------------------------------------------------------------
-// 1. SKALA SPASI (SPACING SCALE)
+// 1. SPACING SCALE
 // -----------------------------------------------------------------------------
-// Menggunakan basis 8px. Semua spasi adalah kelipatan dari 8.
-// Ini menciptakan ritme visual yang konsisten di seluruh halaman.
-$spacing-xs: 4px;    // Extra Small (4px)
-$spacing-sm: 8px;    // Small (8px)
-$spacing-md: 16px;   // Medium/Baseline (16px)
-$spacing-lg: 24px;   // Large (24px)
-$spacing-xl: 32px;   // Extra Large (32px)
-$spacing-2xl: 48px;  // Double Extra Large (48px)
-$spacing-3xl: 64px;  // Triple Extra Large (64px)
+// 8px base grid. All spacing is a multiple of 8.
+$spacing-xs: 4px;    // 4px
+$spacing-sm: 8px;    // 8px
+$spacing-md: 16px;   // 16px / baseline
+$spacing-lg: 24px;   // 24px
+$spacing-xl: 32px;   // 32px
+$spacing-2xl: 48px;  // 48px
+$spacing-3xl: 64px;  // 64px
+$spacing-4xl: 96px;  // 96px
+$spacing-5xl: 128px; // 128px
 
 // Legacy spacing (backward compatibility)
 $spacing-4px: $spacing-xs;
@@ -53,25 +31,23 @@ $spacing-48px: $spacing-2xl;
 $spacing-64px: $spacing-3xl;
 
 // -----------------------------------------------------------------------------
-// 2. SKALA TIPOGRAFI (TYPOGRAPHY SCALE)
+// 2. TYPOGRAPHY SCALE
 // -----------------------------------------------------------------------------
-// Menggunakan 'rem' untuk aksesibilitas dan skalabilitas. 1rem = 16px (default browser).
-// Skala ini dibuat agar perbandingan antar ukuran font terlihat harmonis.
-$font-size-xs: 0.75rem;    // 12px - Untuk text kecil, label
-$font-size-sm: 0.875rem;   // 14px - Untuk text kecil, label
-$font-size-base: 1rem;     // 16px - Untuk body text (paragraf)
-$font-size-md: 1.125rem;   // 18px - Sedikit lebih besar dari body
-$font-size-lg: 1.25rem;    // 20px - Untuk sub-judul kecil
-$font-size-xl: 1.5rem;     // 24px - Heading 4 (H4) / Large text
-$font-size-2xl: 2rem;      // 32px - Heading 3 (H3)
-$font-size-3xl: 2.5rem;    // 40px - Heading 2 (H2)
-$font-size-4xl: 3rem;      // 48px - Heading 1 (H1)
-$font-size-5xl: 3.75rem;   // 60px - Hero headings
-$font-size-6xl: 4.5rem;    // 72px - Extra large headings
+$font-size-xs: 0.625rem;   // 10px  - metadata, labels
+$font-size-sm: 0.75rem;    // 12px  - captions, fine print
+$font-size-base: 0.875rem; // 14px  - body text (tight editorial)
+$font-size-md: 1rem;       // 16px  - slightly larger body
+$font-size-lg: 1.125rem;   // 18px  - lead text
+$font-size-xl: 1.375rem;   // 22px  - sub-headings
+$font-size-2xl: 1.75rem;   // 28px  - section titles
+$font-size-3xl: 2.25rem;   // 36px  - page headings
+$font-size-4xl: 3.5rem;    // 56px  - large headings
+$font-size-5xl: 5rem;      // 80px  - hero display
+$font-size-6xl: 7.5rem;    // 120px - XL display
 
 // Font Families
-$font-primary: 'KH Interference', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-$font-mono: 'PP FraktionMono', Consolas, Monaco, 'Courier New', monospace;
+$font-primary: 'KH Interference', system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, sans-serif;
+$font-mono: 'PP FraktionMono', consolas, monaco, 'Courier New', monospace;
 
 // Font Weights
 $font-weight-light: 300;
@@ -81,51 +57,68 @@ $font-weight-semibold: 600;
 $font-weight-bold: 700;
 
 // Line Heights
-$line-height-tight: 1.25;
+$line-height-tight: 1.1;
+$line-height-snug: 1.3;
 $line-height-normal: 1.5;
 $line-height-relaxed: 1.75;
 
 // Letter Spacing
-$letter-spacing-tight: -0.025em;
+$letter-spacing-tightest: -0.04em;
+$letter-spacing-tight: -0.02em;
 $letter-spacing-normal: 0;
-$letter-spacing-wide: 0.025em;
-$letter-spacing-wider: 0.05em;
-$letter-spacing-widest: 0.1em;
+$letter-spacing-wide: 0.05em;
+$letter-spacing-wider: 0.1em;
+$letter-spacing-widest: 0.15em;
 
 // -----------------------------------------------------------------------------
-// 3. PALET WARNA (COLOR PALETTE)
+// 3. COLOR PALETTE — Anthropic Brand
+// https://anthropic.com/brand
 // -----------------------------------------------------------------------------
-// Professional Black & White Theme
-$color-primary: #000000;
-$color-secondary: #ffffff;
-$color-text: #000000;
-$color-text-light: #666666;
-$color-text-muted: #999999;
-$color-background: #ffffff;
-$color-background-alt: #f8f8f8;
-$color-border: #e0e0e0;
-$color-border-light: #f0f0f0;
+// Core neutral ramp — Dark theme
+$color-ink: #f0ede4;           // Warm white       — primary text
+$color-paper: #1c1c1c;         // Near-black       — main background
+$color-paper-alt: #242422;     // Slightly lighter — hover / alternate surfaces
+$color-rule: #2e2d2a;          // Hairline border  — subtle separation
+$color-muted: #6b6960;         // Mid-gray         — secondary text / metadata
+$color-faint: #3a3935;         // Dark gray        — disabled / placeholder
+
+// Accent ramp — Anthropic primary (orange) + supplemental
+$color-accent: #87a9ff;        // Primary accent
+$color-accent-hover: #a8c0ff;  // Lighter for hover on dark bg
+$color-accent-blue: #87a9ff;   // Blue accent — same token
+$color-accent-green: #8aab6a;  // Anthropic Green  — tertiary accent
+
+// Semantic aliases (backward compat)
+$color-primary: $color-ink;
+$color-secondary: $color-paper;
+$color-text: $color-ink;
+$color-text-light: $color-muted;
+$color-text-muted: $color-faint;
+$color-background: $color-paper;
+$color-background-alt: $color-paper-alt;
+$color-border: $color-rule;
+$color-border-light: #383733;  // Slightly lighter border
 
 // -----------------------------------------------------------------------------
-// 4. UKURAN RADIUS (BORDER RADIUS)
+// 4. BORDER RADIUS
 // -----------------------------------------------------------------------------
-$border-radius-sm: 4px;     // Small radius
-$border-radius-md: 8px;     // Medium radius (default)
-$border-radius-lg: 16px;    // Large radius
-$border-radius-xl: 24px;    // Extra large radius
-$border-radius-full: 9999px; // Full radius (circle/pill)
+$border-radius-sm: 2px;
+$border-radius-md: 4px;
+$border-radius-lg: 8px;
+$border-radius-xl: 16px;
+$border-radius-full: 9999px;
 
 // -----------------------------------------------------------------------------
-// 5. BREAKPOINTS RESPONSIVE
+// 5. BREAKPOINTS
 // -----------------------------------------------------------------------------
-$breakpoint-sm: 640px;   // Mobile landscape
-$breakpoint-md: 768px;   // Tablet
-$breakpoint-lg: 1024px;  // Laptop
-$breakpoint-xl: 1280px;  // Desktop
-$breakpoint-2xl: 1440px; // Ultra-wide screens
+$breakpoint-sm: 480px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-2xl: 1440px;
 
 // Legacy breakpoints (backward compatibility)
-$breakpoint-small-mobile: 480px;
+$breakpoint-small-mobile: $breakpoint-sm;
 $breakpoint-mobile: $breakpoint-md;
 $breakpoint-tablet: $breakpoint-lg;
 $breakpoint-desktop: $breakpoint-xl;
@@ -134,26 +127,32 @@ $breakpoint-wide: $breakpoint-2xl;
 // -----------------------------------------------------------------------------
 // 6. SHADOWS
 // -----------------------------------------------------------------------------
-$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 24%);
+$shadow-md: 0 4px 12px -2px rgb(0 0 0 / 32%);
+$shadow-lg: 0 12px 32px -4px rgb(0 0 0 / 48%);
+$shadow-xl: 0 24px 48px -8px rgb(0 0 0 / 56%);
 
 // -----------------------------------------------------------------------------
 // 7. TRANSITIONS
 // -----------------------------------------------------------------------------
-$transition-fast: 0.15s ease-in-out;
-$transition-normal: 0.3s ease-in-out;
-$transition-slow: 0.5s ease-in-out;
+$transition-fast: 0.12s ease;
+$transition-normal: 0.24s ease;
+$transition-slow: 0.48s ease;
+$transition-bounce: 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 
 // -----------------------------------------------------------------------------
-// 8. LAYOUT SYSTEM
+// 8. LAYOUT
 // -----------------------------------------------------------------------------
-$container-max-width: 1280px; // Professional standard for desktop content containers
-$container-padding: $spacing-md;
+$container-max-width: 1200px;
+$container-padding: $spacing-xl;
+$container-padding-mobile: $spacing-md;
+
+// Grid
+$grid-gutter: $spacing-xl;
+$grid-gutter-mobile: $spacing-md;
 
 // -----------------------------------------------------------------------------
-// 9. FLUID TYPOGRAPHY (Optional)
+// 9. FLUID TYPOGRAPHY
 // -----------------------------------------------------------------------------
-$fluid-font-scale: clamp(0.875rem, 2.5vw, 1rem);   // Base font size
-$fluid-heading-scale: clamp(1.5rem, 5vw, 3rem);     // Heading scale
+$fluid-font-scale: clamp(0.875rem, 2vw, 1rem);
+$fluid-heading-scale: clamp(2rem, 6vw, 5rem);

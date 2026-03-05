@@ -1,0 +1,25 @@
+@use '../styles/abstracts/variables' as *;
+@use '../styles/abstracts/mixins' as *;
+
+.root {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: start center;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.bar {
+  width: 100%;
+  height: 1px;
+  background: var(--color-accent);
+  animation: progress 1.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  transform-origin: left center;
+}
+
+@keyframes progress {
+  0%   { transform: scaleX(0);    opacity: 1; }
+  60%  { transform: scaleX(0.85); opacity: 1; }
+  100% { transform: scaleX(1);    opacity: 0; }
+}

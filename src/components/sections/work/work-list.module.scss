@@ -1,0 +1,73 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.list {
+  width: 100%;
+}
+
+.row {
+  transition: background $transition-fast;
+
+  &:hover,
+  &:active {
+    background: $color-paper-alt;
+  }
+}
+
+.rowInner {
+  align-items: center;
+  display: grid;
+  gap: $spacing-md;
+  grid-template-columns: 32px 1fr auto;
+  padding: $spacing-md 0;
+  min-height: 52px;
+
+  @include tablet {
+    gap: $spacing-xl;
+    grid-template-columns: 40px 1fr auto auto;
+    padding: $spacing-lg 0;
+  }
+}
+
+.rowIndex {
+  color: $color-faint;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-wide;
+}
+
+.rowName {
+  color: $color-ink;
+  font-family: $font-mono;
+  font-size: $font-size-base;
+  letter-spacing: $letter-spacing-normal;
+}
+
+.rowType {
+  color: $color-muted;
+  display: none;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-wider;
+  text-transform: uppercase;
+
+  @include tablet {
+    display: block;
+  }
+}
+
+.rowStatus {
+  color: $color-faint;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-wide;
+  text-transform: uppercase;
+
+  &[data-status='live'] {
+    color: $color-accent;
+  }
+
+  &[data-status='wip'] {
+    color: $color-muted;
+  }
+}

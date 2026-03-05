@@ -1,0 +1,40 @@
+// ScrambleText component styles
+// Ensures proper layering of placeholder and overlay text
+
+.root {
+  cursor: pointer;
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+// Placeholder text (invisible but maintains layout width)
+.placeholder {
+  pointer-events: none;
+  visibility: hidden;
+}
+
+// Overlay text (visible, animated)
+// No white-space: nowrap — must wrap to match the placeholder's natural layout
+.overlay {
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+// Inherit all typographic tokens from the parent context
+.root,
+.placeholder,
+.overlay {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  text-decoration: inherit;
+  text-transform: inherit;
+}

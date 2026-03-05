@@ -1,0 +1,86 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+.section {
+  padding: $spacing-3xl 0;
+
+  @include tablet {
+    padding: $spacing-4xl 0;
+  }
+}
+
+.sectionInner {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.sectionLabel {
+  align-items: baseline;
+  display: flex;
+  gap: $spacing-md;
+}
+
+.sectionIndex {
+  color: $color-muted;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-widest;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.sectionTitle {
+  color: $color-ink;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+}
+
+.sectionBody {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-lg;
+
+  @include tablet {
+    max-width: 52ch;
+  }
+}
+
+.bodyText {
+  color: $color-ink;
+  font-family: $font-primary;
+  font-size: $font-size-md;
+  line-height: 1.72;
+  margin: 0;
+}
+
+// Link — full-width tap area on mobile
+.sectionLink {
+  align-items: center;
+  color: $color-ink;
+  display: inline-flex;
+  font-family: $font-mono;
+  font-size: $font-size-xs;
+  gap: $spacing-xs;
+  letter-spacing: $letter-spacing-widest;
+  min-height: 44px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color $transition-fast;
+
+  &:hover,
+  &:active {
+    color: $color-accent;
+
+    .linkArrow {
+      transform: translate(3px, -3px);
+    }
+  }
+}
+
+.linkArrow {
+  display: inline-block;
+  transition: transform $transition-fast;
+}

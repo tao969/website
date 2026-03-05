@@ -9,7 +9,34 @@
 @use 'typography' as *;
 @use 'utilities' as *;
 
-// Global Styles
+// CSS Custom Properties - runtime theming layer
+:root {
+  --color-ink: #{$color-ink};
+  --color-paper: #{$color-paper};
+  --color-paper-alt: #{$color-paper-alt};
+  --color-rule: #{$color-rule};
+  --color-muted: #{$color-muted};
+  --color-faint: #{$color-faint};
+  --color-accent: #{$color-accent};
+  --color-accent-hover: #{$color-accent-hover};
+  --color-accent-blue: #{$color-accent-blue};
+  --color-accent-green: #{$color-accent-green};
+  --font-primary: #{$font-primary};
+  --font-mono: #{$font-mono};
+  --spacing-xs: #{$spacing-xs};
+  --spacing-sm: #{$spacing-sm};
+  --spacing-md: #{$spacing-md};
+  --spacing-lg: #{$spacing-lg};
+  --spacing-xl: #{$spacing-xl};
+  --spacing-2xl: #{$spacing-2xl};
+  --transition-fast: #{$transition-fast};
+  --transition-normal: #{$transition-normal};
+  --transition-slow: #{$transition-slow};
+  --container-max: #{$container-max-width};
+  --container-pad: #{$container-padding};
+}
+
+// Base
 * {
   box-sizing: border-box;
 }
@@ -17,129 +44,131 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  text-size-adjust: 100%;
 }
 
 body {
+  background-color: $color-paper;
+  color: $color-ink;
   font-family: $font-mono;
   font-size: $font-size-base;
-  line-height: $line-height-normal;
-  color: $color-text;
-  background-color: $color-background;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  overflow-x: hidden; // Prevent horizontal scrolling
+  line-height: $line-height-normal;
+  overflow-x: hidden;
+  text-rendering: optimizelegibility;
 }
 
-// Focus Management
+// Focus management
 *:focus {
   outline: none;
 }
 
 *:focus-visible {
-  @include focus-visible;
+  outline: 1.5px solid $color-accent;
+  outline-offset: 3px;
 }
 
-// Selection Styles
+// Selection
 ::selection {
-  background-color: $color-primary;
-  color: $color-secondary;
+  background-color: $color-ink;
+  color: $color-paper;
 }
 
-::-moz-selection {
-  background-color: $color-primary;
-  color: $color-secondary;
+::selection {
+  background-color: $color-ink;
+  color: $color-paper;
 }
 
-// Scrollbar Styles
+// Scrollbar
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: $color-background-alt;
+  background: $color-paper-alt;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: $color-border;
-  border-radius: $border-radius-sm;
+  background: $color-rule;
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: $color-text-light;
+  background: $color-muted;
 }
 
-// Image Optimization
+// Images
 img {
-  max-width: 100%;
-  height: auto;
   display: block;
+  height: auto;
+  max-width: 100%;
 }
 
-// Link Styles
+// Links
 a {
-  color: $color-text;
-  text-decoration: none;
-  transition: color $transition-fast;
+  color: inherit;
   -webkit-tap-highlight-color: transparent;
+  text-decoration: none;
+  transition: color $transition-fast, opacity $transition-fast;
 
   &:hover {
-    color: $color-text-light;
+    color: $color-accent;
   }
 
-  // Mobile tap feedback
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-md) {
     &:active {
-      opacity: 0.7;
+      opacity: 0.65;
     }
   }
 }
 
-// Button Reset
+// Buttons
 button {
   background: none;
   border: none;
-  padding: 0;
-  font: inherit;
   cursor: pointer;
+  font: inherit;
   outline: inherit;
+  padding: 0;
   -webkit-tap-highlight-color: transparent;
 
-  // Mobile tap feedback
-  @media (max-width: 768px) {
+  @media (max-width: $breakpoint-md) {
     &:active {
-      opacity: 0.7;
-      transform: scale(0.98);
+      opacity: 0.65;
     }
   }
 }
 
-// List Styles
-ul, ol {
+// Lists
+ul,
+ol {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-// Heading Styles
-h1, h2, h3, h4, h5, h6 {
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $font-weight-regular;
+  line-height: $line-height-tight;
   margin: 0;
-  font-weight: inherit;
-  line-height: inherit;
 }
 
-// Paragraph Styles
+// Paragraphs
 p {
   margin: 0;
 }
 
-// Utility Classes
+// Utility classes
 .sr-only {
   @include visually-hidden;
 }
-
-// Container class is now defined in _layout-grid.scss as the single source of truth
-// Removed conflicting @include container to prevent CSS conflicts
 
 .flex-center {
   @include flex-center;

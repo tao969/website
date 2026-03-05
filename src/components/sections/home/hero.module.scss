@@ -1,0 +1,64 @@
+@use '../../../styles/abstracts/variables' as *;
+@use '../../../styles/abstracts/mixins' as *;
+
+// -----------------------------------------------------------------------------
+// Hero — full-viewport anchor. Name sits flush to the bottom.
+// -----------------------------------------------------------------------------
+
+.hero {
+  align-items: flex-end;
+  display: flex;
+  min-height: 100svh;
+  overflow: hidden;        // clip large display text at viewport edge
+  padding: 0 0 $spacing-3xl;
+  position: relative;      // stacking context for the canvas layer
+
+  @include tablet {
+    padding: 0 0 $spacing-4xl;
+  }
+}
+
+// Vertical stack: name above, footer row below
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+  position: relative;  // sits above canvas (stacking order)
+  width: 100%;
+  z-index: 1;
+}
+
+.meta {
+  display: grid;
+  gap: $spacing-sm;
+  max-width: 52ch;
+}
+
+.kicker {
+  color: $color-muted;
+  font-family: Poppins, $font-primary;
+  font-size: $font-size-xs;
+  letter-spacing: $letter-spacing-widest;
+  text-transform: uppercase;
+}
+
+.context {
+  color: $color-ink;
+  font-family: Lora, $font-mono;
+  font-size: $font-size-md;
+  line-height: $line-height-relaxed;
+  margin: 0;
+}
+
+.name {
+  color: $color-ink;
+  cursor: default;
+  display: block;
+  font-family: $font-primary;
+  font-size: clamp(4.5rem, 22vw, 10rem);
+  font-weight: $font-weight-light;
+  letter-spacing: $letter-spacing-tightest;
+  line-height: 0.9;
+  margin: 0;
+  user-select: none;
+}

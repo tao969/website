@@ -58,6 +58,9 @@ temp/
 *.swp
 *.swo
 
+# AI agent skills/plugins — not part of the website
+.agents/
+
 # VS Code — allow settings and extensions, block personal/mcp config
 .vscode/*
 !.vscode/settings.json
